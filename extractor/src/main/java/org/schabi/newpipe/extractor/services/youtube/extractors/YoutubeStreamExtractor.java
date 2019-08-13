@@ -575,29 +575,28 @@ public class YoutubeStreamExtractor extends StreamExtractor {
      */
     @Override
     public String getErrorMessage() {
+        Element element;
+        String errorMessage = (element = doc.select("h1[id=\"unavailable-message\"]").first()) != null ? element.text() : null;
         StringBuilder errorReason;
-        Element errorElement = doc.select("h1[id=\"unavailable-message\"]").first();
 
-        if (errorElement == null) {
+        if (errorMessage == null || errorMessage.isEmpty()) {
             errorReason = null;
+        } else if (errorMessage.contains("GEMA")) {
+            // Gema sometimes blocks youtube music content in germany:
+            // https://www.gema.de/en/
+            // Detailed description:
+            // https://en.wikipedia.org/wiki/GEMA_%28German_organization%29
+            errorReason = new StringBuilder("GEMA");
         } else {
-            String errorMessage = errorElement.text();
-            if (errorMessage == null || errorMessage.isEmpty()) {
-                errorReason = null;
-            } else if (errorMessage.contains("GEMA")) {
-                // Gema sometimes blocks youtube music content in germany:
-                // https://www.gema.de/en/
-                // Detailed description:
-                // https://en.wikipedia.org/wiki/GEMA_%28German_organization%29
-                errorReason = new StringBuilder("GEMA");
-            } else {
-                errorReason = new StringBuilder(errorMessage);
+            errorReason = new StringBuilder(errorMessage);
+
+            if ((element = doc.select("[id=\"unavailable-submessage\"]").first()) != null) {
                 errorReason.append("  ");
-                errorReason.append(doc.select("[id=\"unavailable-submessage\"]").first().text());
+                errorReason.append(element.text());
             }
         }
 
-        return errorReason != null ? errorReason.toString() : null;
+        return errorReason != null ? errorReason.toString() : "";
     }
 
     /*//////////////////////////////////////////////////////////////////////////
@@ -673,12 +672,12 @@ public class YoutubeStreamExtractor extends StreamExtractor {
                 case "GEMA":
                     throw new GemaException(errorReason);
                 case "":
-                    throw new ContentNotAvailableException("Content not available: player config empty", e);
+                    throw new ContentNotAvailableException("Content not available: player config empty, pageContent: " + pageContent, e);
                 default:
-                    throw new ContentNotAvailableException("Content not available", e);
+                    throw new ContentNotAvailableException("Content not available, pageContent: " + pageContent, e);
             }
         } catch (Exception e) {
-            throw new ParsingException("Could not parse yt player config", e);
+            throw new ParsingException("Could not parse yt player config, pageContent: " + pageContent, e);
         }
     }
 
