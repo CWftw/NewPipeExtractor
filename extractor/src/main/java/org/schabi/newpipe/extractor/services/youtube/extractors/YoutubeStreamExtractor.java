@@ -575,7 +575,8 @@ public class YoutubeStreamExtractor extends StreamExtractor {
      */
     @Override
     public String getErrorMessage() {
-        String errorMessage = doc.select("h1[id=\"unavailable-message\"]").first().text();
+        Element element;
+        String errorMessage = (element = doc.select("h1[id=\"unavailable-message\"]").first()) != null ? element.text() : null;
         StringBuilder errorReason;
 
         if (errorMessage == null || errorMessage.isEmpty()) {
@@ -588,11 +589,14 @@ public class YoutubeStreamExtractor extends StreamExtractor {
             errorReason = new StringBuilder("GEMA");
         } else {
             errorReason = new StringBuilder(errorMessage);
-            errorReason.append("  ");
-            errorReason.append(doc.select("[id=\"unavailable-submessage\"]").first().text());
+
+            if ((element = doc.select("[id=\"unavailable-submessage\"]").first()) != null) {
+                errorReason.append("  ");
+                errorReason.append(element.text());
+            }
         }
 
-        return errorReason != null ? errorReason.toString() : null;
+        return errorReason != null ? errorReason.toString() : "";
     }
 
     /*//////////////////////////////////////////////////////////////////////////
