@@ -19,6 +19,7 @@ import org.schabi.newpipe.extractor.subscription.SubscriptionExtractor;
 import org.schabi.newpipe.extractor.suggestion.SuggestionExtractor;
 
 import javax.annotation.Nonnull;
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -46,8 +47,16 @@ import static org.schabi.newpipe.extractor.StreamingService.ServiceInfo.MediaCap
 
 public class YoutubeService extends StreamingService {
 
+    private List<String> additionalRegexes;
+
     public YoutubeService(int id) {
         super(id, "YouTube", asList(AUDIO, VIDEO, LIVE, COMMENTS));
+        this.additionalRegexes = new ArrayList<String>();
+    }
+
+    public YoutubeService(int id, List<String> additionalRegexes) {
+        super(id, "YouTube", asList(AUDIO, VIDEO, LIVE, COMMENTS));
+        this.additionalRegexes = additionalRegexes;
     }
 
     @Override
@@ -188,5 +197,9 @@ public class YoutubeService extends StreamingService {
 
     public List<ContentCountry> getSupportedCountries() {
         return SUPPORTED_COUNTRIES;
+    }
+
+    public List<String> getAdditionalRegexes() {
+        return this.additionalRegexes;
     }
 }
