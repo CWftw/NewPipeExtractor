@@ -23,6 +23,7 @@ import org.schabi.newpipe.extractor.localization.TimeAgoPatternsManager;
 import org.schabi.newpipe.extractor.services.youtube.ItagItem;
 import org.schabi.newpipe.extractor.services.youtube.linkHandler.YoutubeChannelLinkHandlerFactory;
 import org.schabi.newpipe.extractor.services.youtube.linkHandler.YoutubeParsingHelper;
+import org.schabi.newpipe.extractor.services.youtube.YoutubeService;
 import org.schabi.newpipe.extractor.stream.AudioStream;
 import org.schabi.newpipe.extractor.stream.Description;
 import org.schabi.newpipe.extractor.stream.Frameset;
@@ -40,6 +41,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
@@ -756,8 +758,10 @@ public class YoutubeStreamExtractor extends StreamExtractor {
                 DECRYPTION_AKAMAIZED_SHORT_STRING_REGEX,
                 DECRYPTION_AKAMAIZED_STRING_REGEX
         };
+        List<String> allRegexes = new ArrayList<>(Arrays.asList(decryptionFuncNameRegexes));
+        allRegexes.addAll(((YoutubeService)this.getService()).getAdditionalRegexes());
         Parser.RegexException exception = null;
-        for (String regex : decryptionFuncNameRegexes) {
+        for (String regex : allRegexes) {
             try {
                 return Parser.matchGroup1(regex, playerCode);
             } catch (Parser.RegexException re) {
