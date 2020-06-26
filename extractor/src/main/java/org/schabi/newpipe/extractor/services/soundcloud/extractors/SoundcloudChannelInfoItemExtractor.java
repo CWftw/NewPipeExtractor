@@ -2,6 +2,7 @@ package org.schabi.newpipe.extractor.services.soundcloud.extractors;
 
 import com.grack.nanojson.JsonObject;
 import org.schabi.newpipe.extractor.channel.ChannelInfoItemExtractor;
+import org.schabi.newpipe.extractor.exceptions.ParsingException;
 
 import static org.schabi.newpipe.extractor.utils.JsonUtils.EMPTY_STRING;
 import static org.schabi.newpipe.extractor.utils.Utils.replaceHttpWithHttps;
@@ -28,6 +29,11 @@ public class SoundcloudChannelInfoItemExtractor implements ChannelInfoItemExtrac
         String avatarUrl = itemObject.getString("avatar_url", EMPTY_STRING);
         String avatarUrlBetterResolution = avatarUrl.replace("large.jpg", "crop.jpg");
         return avatarUrlBetterResolution;
+    }
+
+    @Override
+    public String getAnimatedThumbnailUrl() throws ParsingException {
+        return null;
     }
 
     @Override

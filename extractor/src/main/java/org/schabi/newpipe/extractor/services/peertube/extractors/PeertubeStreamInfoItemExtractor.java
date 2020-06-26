@@ -31,6 +31,11 @@ public class PeertubeStreamInfoItemExtractor implements StreamInfoItemExtractor 
     }
 
     @Override
+    public String getAnimatedThumbnailUrl() throws ParsingException {
+        return null;
+    }
+
+    @Override
     public String getName() throws ParsingException {
         return JsonUtils.getString(item, "name");
     }

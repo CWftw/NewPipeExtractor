@@ -40,4 +40,9 @@ public class MediaCCCConferenceInfoItemExtractor implements ChannelInfoItemExtra
     public String getThumbnailUrl() {
         return conference.getString("logo_url");
     }
+
+    @Override
+    public String getAnimatedThumbnailUrl() throws ParsingException {
+        return null;
+    }
 }
