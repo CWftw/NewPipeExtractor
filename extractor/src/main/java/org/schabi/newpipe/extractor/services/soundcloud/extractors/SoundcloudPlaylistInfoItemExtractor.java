@@ -71,6 +71,11 @@ public class SoundcloudPlaylistInfoItemExtractor implements PlaylistInfoItemExtr
     }
 
     @Override
+    public String getAnimatedThumbnailUrl() throws ParsingException {
+        return null;
+    }
+
+    @Override
     public String getUploaderName() throws ParsingException {
         try {
             return itemObject.getObject(USER_KEY).getString("username");

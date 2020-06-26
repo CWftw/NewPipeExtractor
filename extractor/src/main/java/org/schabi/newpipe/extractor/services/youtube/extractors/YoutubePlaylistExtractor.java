@@ -269,6 +269,11 @@ public class YoutubePlaylistExtractor extends PlaylistExtractor {
             }
 
             @Override
+            public String getAnimatedThumbnailUrl() throws ParsingException {
+                return null;
+            }
+
+            @Override
             public StreamType getStreamType() {
                 return StreamType.VIDEO_STREAM;
             }

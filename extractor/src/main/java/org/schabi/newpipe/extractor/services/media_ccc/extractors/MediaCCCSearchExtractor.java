@@ -143,6 +143,11 @@ public class MediaCCCSearchExtractor extends SearchExtractor {
                     public String getThumbnailUrl() {
                         return item.getThumbnailUrl();
                     }
+
+                    @Override
+                    public String getAnimatedThumbnailUrl() throws ParsingException {
+                        return null;
+                    }
                 });
             }
         }
