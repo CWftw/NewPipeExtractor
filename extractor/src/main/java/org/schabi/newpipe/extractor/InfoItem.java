@@ -28,6 +28,7 @@ public abstract class InfoItem implements Serializable {
     private final String url;
     private final String name;
     private String thumbnailUrl;
+    private String animatedThumbnailUrl;
 
     public InfoItem(InfoType infoType, int serviceId, String url, String name) {
         this.infoType = infoType;
@@ -58,6 +59,14 @@ public abstract class InfoItem implements Serializable {
 
     public String getThumbnailUrl() {
         return thumbnailUrl;
+    }
+
+    public void setAnimatedThumbnailUrl(String animatedThumbnailUrl) {
+        this.animatedThumbnailUrl = animatedThumbnailUrl;
+    }
+
+    public String getAnimatedThumbnailUrl() {
+        return animatedThumbnailUrl;
     }
 
     @Override

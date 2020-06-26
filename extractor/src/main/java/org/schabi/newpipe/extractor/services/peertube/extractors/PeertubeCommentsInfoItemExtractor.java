@@ -41,6 +41,11 @@ public class PeertubeCommentsInfoItemExtractor implements CommentsInfoItemExtrac
     }
 
     @Override
+    public String getAnimatedThumbnailUrl() throws ParsingException {
+        return null;
+    }
+
+    @Override
     public String getName() throws ParsingException {
         return JsonUtils.getString(item, "account.displayName");
     }

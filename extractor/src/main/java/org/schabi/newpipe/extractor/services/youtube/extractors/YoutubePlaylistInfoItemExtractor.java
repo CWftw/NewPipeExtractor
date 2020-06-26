@@ -30,6 +30,11 @@ public class YoutubePlaylistInfoItemExtractor implements PlaylistInfoItemExtract
     }
 
     @Override
+    public String getAnimatedThumbnailUrl() throws ParsingException {
+        return null;
+    }
+
+    @Override
     public String getName() throws ParsingException {
         try {
             return getTextFromObject(playlistInfoItem.getObject("title"));

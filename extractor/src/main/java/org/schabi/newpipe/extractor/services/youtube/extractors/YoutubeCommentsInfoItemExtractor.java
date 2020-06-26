@@ -42,6 +42,11 @@ public class YoutubeCommentsInfoItemExtractor implements CommentsInfoItemExtract
     }
 
     @Override
+    public String getAnimatedThumbnailUrl() throws ParsingException {
+        return null;
+    }
+
+    @Override
     public String getName() throws ParsingException {
         try {
             return getTextFromObject(JsonUtils.getObject(json, "authorText"));

@@ -49,6 +49,11 @@ public class YoutubeChannelInfoItemExtractor implements ChannelInfoItemExtractor
     }
 
     @Override
+    public String getAnimatedThumbnailUrl() throws ParsingException {
+        return null;
+    }
+
+    @Override
     public String getName() throws ParsingException {
         try {
             return getTextFromObject(channelInfoItem.getObject("title"));

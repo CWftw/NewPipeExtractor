@@ -69,6 +69,11 @@ public class SoundcloudStreamInfoItemExtractor implements StreamInfoItemExtracto
     }
 
     @Override
+    public String getAnimatedThumbnailUrl() throws ParsingException {
+        return null;
+    }
+
+    @Override
     public StreamType getStreamType() {
         return StreamType.AUDIO_STREAM;
     }

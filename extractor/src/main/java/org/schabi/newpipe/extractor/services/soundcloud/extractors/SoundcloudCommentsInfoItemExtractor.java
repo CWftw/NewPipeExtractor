@@ -74,4 +74,9 @@ public class SoundcloudCommentsInfoItemExtractor implements CommentsInfoItemExtr
     public String getThumbnailUrl() {
         return json.getObject("user").getString("avatar_url");
     }
+
+    @Override
+    public String getAnimatedThumbnailUrl() throws ParsingException {
+        return null;
+    }
 }
