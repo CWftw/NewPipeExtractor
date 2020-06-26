@@ -236,6 +236,18 @@ public class YoutubeStreamInfoItemExtractor implements StreamInfoItemExtractor {
         }
     }
 
+    public String getAnimatedThumbnailUrl() throws ParsingException {
+        try {
+            // TODO: Don't simply get the first item, but look at all thumbnails and their resolution
+            String url = videoInfo.getObject("richThumbnail").getObject("movingThumbnailRenderer").getObject("movingThumbnailDetails").getArray("thumbnails")
+                    .getObject(0).getString("url");
+
+            return fixThumbnailUrl(url);
+        } catch (Exception e) {
+            throw new ParsingException("Could not get thumbnail url", e);
+        }
+    }
+
     private boolean isPremium() {
         JsonArray badges = videoInfo.getArray("badges");
         for (Object badge : badges) {
