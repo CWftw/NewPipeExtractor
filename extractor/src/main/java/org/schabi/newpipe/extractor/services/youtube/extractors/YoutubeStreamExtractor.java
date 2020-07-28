@@ -855,8 +855,14 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     private String getDeobfuscationFuncName(final String playerCode) throws DeobfuscateException {
         Parser.RegexException exception = null;
 
-        List<String> allRegexes = new ArrayList<>(Arrays.asList(REGEXES));
-        allRegexes.addAll(((YoutubeService)this.getService()).getAdditionalRegexes());
+        List<String> allRegexes = new ArrayList<>();
+
+        List<String> additionalRegexes = ((YoutubeService)this.getService()).getAdditionalRegexes();
+        if (additionalRegexes != null && !additionalRegexes.isEmpty()) {
+            allRegexes.addAll(additionalRegexes);
+        } else {
+            allRegexes.addAll(Arrays.asList(REGEXES));
+        }
 
         for (final String regex : allRegexes) {
             try {
