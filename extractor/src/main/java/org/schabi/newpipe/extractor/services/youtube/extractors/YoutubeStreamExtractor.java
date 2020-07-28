@@ -776,9 +776,17 @@ public class YoutubeStreamExtractor extends StreamExtractor {
                 DECRYPTION_AKAMAIZED_SHORT_STRING_REGEX,
                 DECRYPTION_AKAMAIZED_STRING_REGEX
         };
+
+        List<String> allRegexes = new ArrayList<>();
+
+        List<String> additionalRegexes = ((YoutubeService)this.getService()).getAdditionalRegexes();
+        if (additionalRegexes != null && !additionalRegexes.isEmpty()) {
+            allRegexes.addAll(additionalRegexes);
+        } else {
+            allRegexes.addAll(Arrays.asList(decryptionFuncNameRegexes));
+        }
+
         Parser.RegexException exception = null;
-        List<String> allRegexes = new ArrayList<>(Arrays.asList(decryptionFuncNameRegexes));
-        allRegexes.addAll(((YoutubeService)this.getService()).getAdditionalRegexes());
         for (final String regex : allRegexes) {
             try {
                 return Parser.matchGroup1(regex, playerCode);
