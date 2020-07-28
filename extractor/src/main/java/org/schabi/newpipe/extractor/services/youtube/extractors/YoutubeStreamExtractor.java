@@ -809,7 +809,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     private String getDecryptionFuncName(final String playerCode) throws DecryptException {
         Parser.RegexException exception = null;
 
-        List<String> allRegexes = new ArrayList<>(Arrays.asList(REGEXES));
+        List<String> allRegexes = new ArrayList<>();
         allRegexes.addAll(((YoutubeService)this.getService()).getAdditionalRegexes());
 
         for (final String regex : allRegexes) {
