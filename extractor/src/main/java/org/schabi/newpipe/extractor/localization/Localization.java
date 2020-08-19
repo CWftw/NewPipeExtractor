@@ -1,7 +1,7 @@
 package org.schabi.newpipe.extractor.localization;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +11,7 @@ import java.util.Locale;
 public class Localization implements Serializable {
     public static final Localization DEFAULT = new Localization("en", "GB");
 
-    @Nonnull private final String languageCode;
+    @NonNull private final String languageCode;
     @Nullable private final String countryCode;
 
     /**
@@ -43,12 +43,12 @@ public class Localization implements Serializable {
         return new Localization(languageCode, countryCode);
     }
 
-    public Localization(@Nonnull String languageCode, @Nullable String countryCode) {
+    public Localization(@NonNull String languageCode, @Nullable String countryCode) {
         this.languageCode = languageCode;
         this.countryCode = countryCode;
     }
 
-    public Localization(@Nonnull String languageCode) {
+    public Localization(@NonNull String languageCode) {
         this(languageCode, null);
     }
 
@@ -56,7 +56,7 @@ public class Localization implements Serializable {
         return languageCode;
     }
 
-    @Nonnull
+    @NonNull
     public String getCountryCode() {
         return countryCode == null ? "" : countryCode;
     }
@@ -65,7 +65,7 @@ public class Localization implements Serializable {
         return new Locale(getLanguageCode(), getCountryCode());
     }
 
-    public static Localization fromLocale(@Nonnull Locale locale) {
+    public static Localization fromLocale(@NonNull Locale locale) {
         return new Localization(locale.getLanguage(), locale.getCountry());
     }
 

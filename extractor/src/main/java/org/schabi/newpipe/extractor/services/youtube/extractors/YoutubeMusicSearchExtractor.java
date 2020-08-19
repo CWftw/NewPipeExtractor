@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.*;
 import static org.schabi.newpipe.extractor.services.youtube.linkHandler.YoutubeSearchQueryHandlerFactory.MUSIC_ALBUMS;
@@ -47,7 +47,7 @@ public class YoutubeMusicSearchExtractor extends SearchExtractor {
     }
 
     @Override
-    public void onFetchPage(@Nonnull final Downloader downloader) throws IOException, ExtractionException {
+    public void onFetchPage(@NonNull final Downloader downloader) throws IOException, ExtractionException {
         final String[] youtubeMusicKeys = YoutubeParsingHelper.getYoutubeMusicKeys();
 
         final String url = "https://music.youtube.com/youtubei/v1/search?alt=json&key=" + youtubeMusicKeys[0];
@@ -121,13 +121,13 @@ public class YoutubeMusicSearchExtractor extends SearchExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUrl() throws ParsingException {
         return super.getUrl();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSearchSuggestion() throws ParsingException {
         final JsonObject itemSectionRenderer = initialData.getObject("contents").getObject("sectionListRenderer")
@@ -163,7 +163,7 @@ public class YoutubeMusicSearchExtractor extends SearchExtractor {
         return !showingResultsForRenderer.isEmpty();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public InfoItemsPage<InfoItem> getInitialPage() throws ExtractionException, IOException {
         final InfoItemsSearchCollector collector = new InfoItemsSearchCollector(getServiceId());

@@ -19,7 +19,7 @@ import org.schabi.newpipe.extractor.utils.Utils;
 
 import java.io.IOException;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 import static org.schabi.newpipe.extractor.services.peertube.PeertubeParsingHelper.COUNT_KEY;
 import static org.schabi.newpipe.extractor.services.peertube.PeertubeParsingHelper.ITEMS_PER_PAGE;
@@ -64,25 +64,25 @@ public class PeertubePlaylistExtractor extends PlaylistExtractor {
         return playlistInfo.getLong("videosLength");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelName() {
         return playlistInfo.getObject("videoChannel").getString("displayName");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelUrl() {
         return playlistInfo.getObject("videoChannel").getString("url");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelAvatarUrl() throws ParsingException {
         return getBaseUrl() + playlistInfo.getObject("videoChannel").getObject("avatar").getString("path");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public InfoItemsPage<StreamInfoItem> getInitialPage() throws IOException, ExtractionException {
         return getPage(new Page(getUrl() + "/videos?" + START_KEY + "=0&" + COUNT_KEY + "=" + ITEMS_PER_PAGE));
@@ -119,7 +119,7 @@ public class PeertubePlaylistExtractor extends PlaylistExtractor {
     }
 
     @Override
-    public void onFetchPage(@Nonnull final Downloader downloader) throws IOException, ExtractionException {
+    public void onFetchPage(@NonNull final Downloader downloader) throws IOException, ExtractionException {
         final Response response = downloader.get(getUrl());
         try {
             playlistInfo = JsonParser.object().from(response.responseBody());
@@ -129,7 +129,7 @@ public class PeertubePlaylistExtractor extends PlaylistExtractor {
         PeertubeParsingHelper.validate(playlistInfo);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() throws ParsingException {
         return playlistInfo.getString("displayName");

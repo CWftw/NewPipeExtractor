@@ -8,8 +8,8 @@ import org.schabi.newpipe.extractor.localization.ContentCountry;
 import org.schabi.newpipe.extractor.localization.Localization;
 import org.schabi.newpipe.extractor.localization.TimeAgoParser;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.io.IOException;
 
 public abstract class Extractor {
@@ -40,7 +40,7 @@ public abstract class Extractor {
     /**
      * @return The {@link LinkHandler} of the current extractor object (e.g. a ChannelExtractor should return a channel url handler).
      */
-    @Nonnull
+    @NonNull
     public LinkHandler getLinkHandler() {
         return linkHandler;
     }
@@ -72,9 +72,9 @@ public abstract class Extractor {
      * @throws IOException         if the page can not be loaded
      * @throws ExtractionException if the pages content is not understood
      */
-    public abstract void onFetchPage(@Nonnull Downloader downloader) throws IOException, ExtractionException;
+    public abstract void onFetchPage(@NonNull Downloader downloader) throws IOException, ExtractionException;
 
-    @Nonnull
+    @NonNull
     public String getId() throws ParsingException {
         return linkHandler.getId();
     }
@@ -85,25 +85,25 @@ public abstract class Extractor {
      * @return the name
      * @throws ParsingException if the name cannot be extracted
      */
-    @Nonnull
+    @NonNull
     public abstract String getName() throws ParsingException;
 
-    @Nonnull
+    @NonNull
     public String getOriginalUrl() throws ParsingException {
         return linkHandler.getOriginalUrl();
     }
 
-    @Nonnull
+    @NonNull
     public String getUrl() throws ParsingException {
         return linkHandler.getUrl();
     }
 
-    @Nonnull
+    @NonNull
     public String getBaseUrl() throws ParsingException {
         return linkHandler.getBaseUrl();
     }
 
-    @Nonnull
+    @NonNull
     public StreamingService getService() {
         return service;
     }
@@ -128,17 +128,17 @@ public abstract class Extractor {
         this.forcedContentCountry = contentCountry;
     }
 
-    @Nonnull
+    @NonNull
     public Localization getExtractorLocalization() {
         return forcedLocalization == null ? getService().getLocalization() : forcedLocalization;
     }
 
-    @Nonnull
+    @NonNull
     public ContentCountry getExtractorContentCountry() {
         return forcedContentCountry == null ? getService().getContentCountry() : forcedContentCountry;
     }
 
-    @Nonnull
+    @NonNull
     public TimeAgoParser getTimeAgoParser() {
         return getService().getTimeAgoParser(getExtractorLocalization());
     }

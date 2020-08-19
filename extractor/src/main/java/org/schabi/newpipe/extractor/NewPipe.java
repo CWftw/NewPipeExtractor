@@ -25,8 +25,8 @@ import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.localization.ContentCountry;
 import org.schabi.newpipe.extractor.localization.Localization;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.util.List;
 
 /**
@@ -137,7 +137,7 @@ public class NewPipe {
         }
     }
 
-    @Nonnull
+    @NonNull
     public static Localization getPreferredLocalization() {
         return preferredLocalization == null ? Localization.DEFAULT : preferredLocalization;
     }
@@ -146,7 +146,7 @@ public class NewPipe {
         NewPipe.preferredLocalization = preferredLocalization;
     }
 
-    @Nonnull
+    @NonNull
     public static ContentCountry getPreferredContentCountry() {
         return preferredContentCountry == null ? ContentCountry.DEFAULT : preferredContentCountry;
     }

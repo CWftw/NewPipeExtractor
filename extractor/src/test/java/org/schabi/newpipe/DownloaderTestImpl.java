@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
@@ -47,7 +47,7 @@ public final class DownloaderTestImpl extends Downloader {
     }
 
     @Override
-    public Response execute(@Nonnull final Request request)
+    public Response execute(@NonNull final Request request)
             throws IOException, ReCaptchaException {
         final String httpMethod = request.httpMethod();
         final String url = request.url();

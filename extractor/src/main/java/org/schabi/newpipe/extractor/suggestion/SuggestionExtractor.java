@@ -5,8 +5,8 @@ import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.localization.ContentCountry;
 import org.schabi.newpipe.extractor.localization.Localization;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.io.IOException;
 import java.util.List;
 
@@ -39,12 +39,12 @@ public abstract class SuggestionExtractor {
         this.forcedContentCountry = contentCountry;
     }
 
-    @Nonnull
+    @NonNull
     public Localization getExtractorLocalization() {
         return forcedLocalization == null ? getService().getLocalization() : forcedLocalization;
     }
 
-    @Nonnull
+    @NonNull
     public ContentCountry getExtractorContentCountry() {
         return forcedContentCountry == null ? getService().getContentCountry() : forcedContentCountry;
     }

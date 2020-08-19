@@ -1,13 +1,11 @@
 package org.schabi.newpipe.extractor;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -27,7 +25,7 @@ public class ExtractorAsserts {
         }
     }
 
-    @Nonnull
+    @NonNull
     private static URL urlFromString(String url) {
         try {
             return new URL(url);

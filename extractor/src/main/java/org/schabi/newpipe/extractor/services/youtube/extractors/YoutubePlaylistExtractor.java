@@ -22,8 +22,8 @@ import org.schabi.newpipe.extractor.utils.Utils;
 
 import java.io.IOException;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.fixThumbnailUrl;
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.getJsonResponse;
@@ -42,7 +42,7 @@ public class YoutubePlaylistExtractor extends PlaylistExtractor {
     }
 
     @Override
-    public void onFetchPage(@Nonnull Downloader downloader) throws IOException, ExtractionException {
+    public void onFetchPage(@NonNull Downloader downloader) throws IOException, ExtractionException {
         final String url = getUrl() + "&pbj=1";
 
         initialAjaxJson = getJsonResponse(url, getExtractorLocalization());
@@ -78,7 +78,7 @@ public class YoutubePlaylistExtractor extends PlaylistExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() throws ParsingException {
         final String name = getTextFromObject(playlistInfo.getObject("title"));
@@ -148,25 +148,25 @@ public class YoutubePlaylistExtractor extends PlaylistExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelName() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelUrl() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelAvatarUrl() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public InfoItemsPage<StreamInfoItem> getInitialPage() {
         final StreamInfoItemsCollector collector = new StreamInfoItemsCollector(getServiceId());

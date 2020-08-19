@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.ListExtractor;
 
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import static org.schabi.newpipe.extractor.services.DefaultTests.*;
 

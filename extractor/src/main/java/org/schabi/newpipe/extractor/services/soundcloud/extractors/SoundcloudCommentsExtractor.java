@@ -19,7 +19,7 @@ import org.schabi.newpipe.extractor.linkhandler.ListLinkHandler;
 
 import java.io.IOException;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 import static org.schabi.newpipe.extractor.utils.Utils.isNullOrEmpty;
 
@@ -28,7 +28,7 @@ public class SoundcloudCommentsExtractor extends CommentsExtractor {
         super(service, uiHandler);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public InfoItemsPage<CommentsInfoItem> getInitialPage() throws ExtractionException, IOException {
         final Downloader downloader = NewPipe.getDownloader();
@@ -72,7 +72,7 @@ public class SoundcloudCommentsExtractor extends CommentsExtractor {
     }
 
     @Override
-    public void onFetchPage(@Nonnull final Downloader downloader) { }
+    public void onFetchPage(@NonNull final Downloader downloader) { }
 
     private void collectStreamsFrom(final CommentsInfoItemsCollector collector, final JsonArray entries) throws ParsingException {
         final String url = getUrl();

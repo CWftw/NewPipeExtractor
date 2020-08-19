@@ -51,8 +51,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.fixThumbnailUrl;
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.getJsonResponse;
@@ -97,7 +97,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     private JsonArray initialAjaxJson;
     @Nullable
     private JsonObject playerArgs;
-    @Nonnull
+    @NonNull
     private final Map<String, String> videoInfoPage = new HashMap<>();
     private JsonObject playerResponse;
     private JsonObject initialData;
@@ -105,7 +105,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     private JsonObject videoSecondaryInfoRenderer;
     private int ageLimit;
 
-    @Nonnull
+    @NonNull
     private List<SubtitlesInfo> subtitlesInfos = new ArrayList<>();
 
     public YoutubeStreamExtractor(StreamingService service, LinkHandler linkHandler) {
@@ -116,7 +116,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     // Impl
     //////////////////////////////////////////////////////////////////////////*/
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() throws ParsingException {
         assertPageFetched();
@@ -186,7 +186,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         return new DateWrapper(YoutubeParsingHelper.parseDateFrom(textualUploadDate), true);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getThumbnailUrl() throws ParsingException {
         assertPageFetched();
@@ -202,7 +202,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
 
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Description getDescription() {
         assertPageFetched();
@@ -337,7 +337,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUploaderUrl() throws ParsingException {
         assertPageFetched();
@@ -360,7 +360,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         throw new ParsingException("Could not get uploader url");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUploaderName() throws ParsingException {
         assertPageFetched();
@@ -381,7 +381,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         return uploaderName;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUploaderAvatarUrl() throws ParsingException {
         assertPageFetched();
@@ -403,25 +403,25 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         return fixThumbnailUrl(url);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelUrl() throws ParsingException {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelName() throws ParsingException {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelAvatarUrl() throws ParsingException {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getDashMpdUrl() throws ParsingException {
         assertPageFetched();
@@ -451,7 +451,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getHlsUrl() throws ParsingException {
         assertPageFetched();
@@ -528,13 +528,13 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     }
 
     @Override
-    @Nonnull
+    @NonNull
     public List<SubtitlesStream> getSubtitlesDefault() {
         return getSubtitles(MediaFormat.TTML);
     }
 
     @Override
-    @Nonnull
+    @NonNull
     public List<SubtitlesStream> getSubtitles(final MediaFormat format) {
         assertPageFetched();
         List<SubtitlesStream> subtitles = new ArrayList<>();
@@ -645,7 +645,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     private volatile String decryptionCode = "";
 
     @Override
-    public void onFetchPage(@Nonnull Downloader downloader) throws IOException, ExtractionException {
+    public void onFetchPage(@NonNull Downloader downloader) throws IOException, ExtractionException {
         final String url = getUrl() + "&pbj=1";
         final String playerUrl;
 
@@ -743,7 +743,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     private EmbeddedInfo getEmbeddedInfo() throws ParsingException, ReCaptchaException {
         try {
             final Downloader downloader = NewPipe.getDownloader();
@@ -850,7 +850,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         throw new DecryptException("Could not find decrypt function with any of the given patterns.", exception);
     }
 
-    @Nonnull
+    @NonNull
     private List<SubtitlesInfo> getAvailableSubtitlesInfo() {
         // If the video is age restricted getPlayerConfig will fail
         if (getAgeLimit() != NO_AGE_LIMIT) return Collections.emptyList();
@@ -966,7 +966,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         return videoSecondaryInfoRenderer;
     }
 
-    @Nonnull
+    @NonNull
     private static String getVideoInfoUrl(final String id, final String sts) {
         // TODO: Try parsing embedded_player_response first
         return "https://www.youtube.com/get_video_info?" + "video_id=" + id +
@@ -1019,7 +1019,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         return urlAndItags;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<Frameset> getFrames() throws ExtractionException {
         try {
@@ -1072,25 +1072,25 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getHost() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getPrivacy() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getCategory() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getLicence() {
         return "";
@@ -1101,13 +1101,13 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         return null;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<String> getTags() {
         return Collections.emptyList();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSupportInfo() {
         return "";

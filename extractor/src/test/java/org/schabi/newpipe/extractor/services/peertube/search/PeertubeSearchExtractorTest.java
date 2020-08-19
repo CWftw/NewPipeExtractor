@@ -11,7 +11,7 @@ import org.schabi.newpipe.extractor.search.SearchExtractor;
 import org.schabi.newpipe.extractor.services.DefaultSearchExtractorTest;
 import org.schabi.newpipe.extractor.services.peertube.PeertubeInstance;
 
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import static java.util.Collections.singletonList;
 import static org.schabi.newpipe.extractor.ServiceList.PeerTube;

@@ -5,7 +5,7 @@ import org.schabi.newpipe.extractor.exceptions.ParsingException;
 import org.schabi.newpipe.extractor.localization.DateWrapper;
 import org.schabi.newpipe.extractor.stream.StreamExtractor;
 
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 public interface CommentsInfoItemExtractor extends InfoItemExtractor {
 

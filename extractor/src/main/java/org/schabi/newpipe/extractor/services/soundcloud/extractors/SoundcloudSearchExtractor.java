@@ -23,7 +23,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 import static org.schabi.newpipe.extractor.services.soundcloud.linkHandler.SoundcloudSearchQueryHandlerFactory.ITEMS_PER_PAGE;
 import static org.schabi.newpipe.extractor.utils.JsonUtils.EMPTY_STRING;
@@ -36,7 +36,7 @@ public class SoundcloudSearchExtractor extends SearchExtractor {
         super(service, linkHandler);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSearchSuggestion() {
         return "";
@@ -47,7 +47,7 @@ public class SoundcloudSearchExtractor extends SearchExtractor {
         return false;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public InfoItemsPage<InfoItem> getInitialPage() throws IOException, ExtractionException {
         return new InfoItemsPage<>(collectItems(searchCollection), getNextPageFromCurrentUrl(getUrl()));
@@ -71,7 +71,7 @@ public class SoundcloudSearchExtractor extends SearchExtractor {
     }
 
     @Override
-    public void onFetchPage(@Nonnull Downloader downloader) throws IOException, ExtractionException {
+    public void onFetchPage(@NonNull Downloader downloader) throws IOException, ExtractionException {
         final Downloader dl = getDownloader();
         final String url = getUrl();
         try {

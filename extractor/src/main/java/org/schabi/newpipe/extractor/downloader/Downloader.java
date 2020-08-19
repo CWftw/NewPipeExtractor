@@ -1,11 +1,12 @@
 package org.schabi.newpipe.extractor.downloader;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.exceptions.ReCaptchaException;
 import org.schabi.newpipe.extractor.localization.Localization;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -140,5 +141,5 @@ public abstract class Downloader {
      *
      * @return the result of the request
      */
-    public abstract Response execute(@Nonnull Request request) throws IOException, ReCaptchaException;
+    public abstract Response execute(@NonNull Request request) throws IOException, ReCaptchaException;
 }

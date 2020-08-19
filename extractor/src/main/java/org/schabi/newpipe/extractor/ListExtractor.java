@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 
 /**
@@ -40,7 +40,7 @@ public abstract class ListExtractor<R extends InfoItem> extends Extractor {
      *
      * @return a {@link InfoItemsPage} corresponding to the initial page
      */
-    @Nonnull
+    @NonNull
     public abstract InfoItemsPage<R> getInitialPage() throws IOException, ExtractionException;
 
     /**

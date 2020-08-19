@@ -12,7 +12,7 @@ import org.schabi.newpipe.extractor.services.youtube.linkHandler.YoutubeSearchQu
 
 import java.net.URLEncoder;
 
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import static java.util.Collections.singletonList;
 import static org.schabi.newpipe.extractor.ServiceList.YouTube;

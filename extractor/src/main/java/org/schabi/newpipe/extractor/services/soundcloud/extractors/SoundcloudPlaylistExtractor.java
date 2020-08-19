@@ -22,8 +22,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import static org.schabi.newpipe.extractor.utils.Utils.isNullOrEmpty;
 
@@ -38,7 +38,7 @@ public class SoundcloudPlaylistExtractor extends PlaylistExtractor {
     }
 
     @Override
-    public void onFetchPage(@Nonnull Downloader downloader) throws IOException, ExtractionException {
+    public void onFetchPage(@NonNull Downloader downloader) throws IOException, ExtractionException {
 
         playlistId = getLinkHandler().getId();
         String apiUrl = "https://api-v2.soundcloud.com/playlists/" + playlistId +
@@ -53,13 +53,13 @@ public class SoundcloudPlaylistExtractor extends PlaylistExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getId() {
         return playlistId;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() {
         return playlist.getString("title");
@@ -116,19 +116,19 @@ public class SoundcloudPlaylistExtractor extends PlaylistExtractor {
         return playlist.getLong("track_count");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelName() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelUrl() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelAvatarUrl() {
         return "";

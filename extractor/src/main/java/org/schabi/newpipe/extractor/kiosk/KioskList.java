@@ -8,7 +8,7 @@ import org.schabi.newpipe.extractor.linkhandler.ListLinkHandlerFactory;
 import org.schabi.newpipe.extractor.localization.ContentCountry;
 import org.schabi.newpipe.extractor.localization.Localization;
 
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;

@@ -6,7 +6,7 @@ import org.schabi.newpipe.extractor.exceptions.ParsingException;
 import org.schabi.newpipe.extractor.linkhandler.ListLinkHandler;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 public abstract class PlaylistExtractor extends ListExtractor<StreamInfoItem> {
 
@@ -23,8 +23,8 @@ public abstract class PlaylistExtractor extends ListExtractor<StreamInfoItem> {
 
     public abstract long getStreamCount() throws ParsingException;
 
-    @Nonnull public abstract String getSubChannelName() throws ParsingException;
-    @Nonnull public abstract String getSubChannelUrl() throws ParsingException;
-    @Nonnull public abstract String getSubChannelAvatarUrl() throws ParsingException;
+    @NonNull public abstract String getSubChannelName() throws ParsingException;
+    @NonNull public abstract String getSubChannelUrl() throws ParsingException;
+    @NonNull public abstract String getSubChannelAvatarUrl() throws ParsingException;
 
 }

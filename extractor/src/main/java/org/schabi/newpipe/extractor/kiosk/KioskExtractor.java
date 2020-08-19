@@ -26,7 +26,7 @@ import org.schabi.newpipe.extractor.StreamingService;
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
 import org.schabi.newpipe.extractor.linkhandler.ListLinkHandler;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 public abstract class KioskExtractor<T extends InfoItem> extends ListExtractor<T> {
     private final String id;
@@ -38,7 +38,7 @@ public abstract class KioskExtractor<T extends InfoItem> extends ListExtractor<T
         this.id = kioskId;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getId() {
         return id;
@@ -52,7 +52,7 @@ public abstract class KioskExtractor<T extends InfoItem> extends ListExtractor<T
      * @return the tranlsated version of id
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     @Override
     public abstract String getName() throws ParsingException;
 }

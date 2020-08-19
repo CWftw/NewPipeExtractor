@@ -32,8 +32,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
 
 import static org.schabi.newpipe.extractor.utils.JsonUtils.EMPTY_STRING;
 import static org.schabi.newpipe.extractor.utils.Utils.isNullOrEmpty;
@@ -46,7 +45,7 @@ public class SoundcloudStreamExtractor extends StreamExtractor {
     }
 
     @Override
-    public void onFetchPage(@Nonnull Downloader downloader) throws IOException, ExtractionException {
+    public void onFetchPage(@NonNull Downloader downloader) throws IOException, ExtractionException {
         track = SoundcloudParsingHelper.resolveFor(downloader, getUrl());
 
         String policy = track.getString("policy", EMPTY_STRING);
@@ -55,19 +54,19 @@ public class SoundcloudStreamExtractor extends StreamExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getId() {
         return track.getInt("id") + "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() {
         return track.getString("title");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getTextualUploadDate() {
         return track.getString("created_at")
@@ -75,13 +74,13 @@ public class SoundcloudStreamExtractor extends StreamExtractor {
                 .replace("Z", "");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public DateWrapper getUploadDate() throws ParsingException {
         return new DateWrapper(SoundcloudParsingHelper.parseDateFrom(track.getString("created_at")));
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getThumbnailUrl() {
         String artworkUrl = track.getString("artwork_url", EMPTY_STRING);
@@ -91,7 +90,7 @@ public class SoundcloudStreamExtractor extends StreamExtractor {
         return artworkUrl.replace("large.jpg", "crop.jpg");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Description getDescription() {
         return new Description(track.getString("description"), Description.PLAIN_TEXT);
@@ -127,49 +126,49 @@ public class SoundcloudStreamExtractor extends StreamExtractor {
         return -1;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUploaderUrl() {
         return SoundcloudParsingHelper.getUploaderUrl(track);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUploaderName() {
         return SoundcloudParsingHelper.getUploaderName(track);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUploaderAvatarUrl() {
         return SoundcloudParsingHelper.getAvatarUrl(track);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelUrl() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelName() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelAvatarUrl() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getDashMpdUrl() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getHlsUrl() {
         return "";
@@ -247,13 +246,13 @@ public class SoundcloudStreamExtractor extends StreamExtractor {
     }
 
     @Override
-    @Nonnull
+    @NonNull
     public List<SubtitlesStream> getSubtitlesDefault() {
         return Collections.emptyList();
     }
 
     @Override
-    @Nonnull
+    @NonNull
     public List<SubtitlesStream> getSubtitles(MediaFormat format) {
         return Collections.emptyList();
     }
@@ -280,25 +279,25 @@ public class SoundcloudStreamExtractor extends StreamExtractor {
         return null;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getHost() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getPrivacy() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getCategory() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getLicence() {
         return "";
@@ -309,13 +308,13 @@ public class SoundcloudStreamExtractor extends StreamExtractor {
         return null;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<String> getTags() {
         return Collections.emptyList();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSupportInfo() {
         return "";

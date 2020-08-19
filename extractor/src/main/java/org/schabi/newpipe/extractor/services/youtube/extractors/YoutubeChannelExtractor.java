@@ -20,7 +20,7 @@ import org.schabi.newpipe.extractor.utils.Utils;
 
 import java.io.IOException;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.fixThumbnailUrl;
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.getJsonResponse;
@@ -70,7 +70,7 @@ public class YoutubeChannelExtractor extends ChannelExtractor {
     }
 
     @Override
-    public void onFetchPage(@Nonnull Downloader downloader) throws IOException, ExtractionException {
+    public void onFetchPage(@NonNull Downloader downloader) throws IOException, ExtractionException {
         String url = super.getUrl() + "/videos?pbj=1&view=0&flow=grid";
         JsonArray ajaxJson = null;
 
@@ -109,7 +109,7 @@ public class YoutubeChannelExtractor extends ChannelExtractor {
         YoutubeParsingHelper.defaultAlertsCheck(initialData);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUrl() throws ParsingException {
         try {
@@ -119,7 +119,7 @@ public class YoutubeChannelExtractor extends ChannelExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getId() throws ParsingException {
         final String channelId = initialData.getObject("header").getObject("c4TabbedHeaderRenderer")
@@ -134,7 +134,7 @@ public class YoutubeChannelExtractor extends ChannelExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() throws ParsingException {
         try {
@@ -224,7 +224,7 @@ public class YoutubeChannelExtractor extends ChannelExtractor {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public InfoItemsPage<StreamInfoItem> getInitialPage() throws ExtractionException {
         final StreamInfoItemsCollector collector = new StreamInfoItemsCollector(getServiceId());

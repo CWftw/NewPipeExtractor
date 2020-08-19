@@ -19,7 +19,7 @@ import org.schabi.newpipe.extractor.stream.StreamInfoItemsCollector;
 
 import java.io.IOException;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 public class MediaCCCConferenceExtractor extends ChannelExtractor {
     private JsonObject conferenceData;
@@ -69,7 +69,7 @@ public class MediaCCCConferenceExtractor extends ChannelExtractor {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public InfoItemsPage<StreamInfoItem> getInitialPage() {
         final StreamInfoItemsCollector collector = new StreamInfoItemsCollector(getServiceId());
@@ -86,7 +86,7 @@ public class MediaCCCConferenceExtractor extends ChannelExtractor {
     }
 
     @Override
-    public void onFetchPage(@Nonnull final Downloader downloader)
+    public void onFetchPage(@NonNull final Downloader downloader)
             throws IOException, ExtractionException {
         final String conferenceUrl = MediaCCCConferenceLinkHandlerFactory.CONFERENCE_API_ENDPOINT + getId();
         try {
@@ -96,9 +96,15 @@ public class MediaCCCConferenceExtractor extends ChannelExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() throws ParsingException {
         return conferenceData.getString("title");
+    }
+
+    @NonNull
+    @Override
+    public String getOriginalUrl() {
+        return "https://media.ccc.de/c/" + conferenceData.getString("acronym");
     }
 }

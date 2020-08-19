@@ -4,8 +4,8 @@ import com.grack.nanojson.JsonArray;
 import com.grack.nanojson.JsonObject;
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,8 +18,8 @@ public class JsonUtils {
     private JsonUtils() {
     }
 
-    @Nonnull
-    public static Object getValue(@Nonnull JsonObject object, @Nonnull String path) throws ParsingException {
+    @NonNull
+    public static Object getValue(@NonNull JsonObject object, @NonNull String path) throws ParsingException {
 
         List<String> keys = Arrays.asList(path.split("\\."));
         object = getObject(object, keys.subList(0, keys.size() - 1));
@@ -29,8 +29,8 @@ public class JsonUtils {
         return result;
     }
 
-    @Nonnull
-    public static String getString(@Nonnull JsonObject object, @Nonnull String path) throws ParsingException {
+    @NonNull
+    public static String getString(@NonNull JsonObject object, @NonNull String path) throws ParsingException {
         Object value = getValue(object, path);
         if (value instanceof String) {
             return (String) value;
@@ -39,8 +39,8 @@ public class JsonUtils {
         }
     }
 
-    @Nonnull
-    public static Boolean getBoolean(@Nonnull JsonObject object, @Nonnull String path) throws ParsingException {
+    @NonNull
+    public static Boolean getBoolean(@NonNull JsonObject object, @NonNull String path) throws ParsingException {
         Object value = getValue(object, path);
         if (value instanceof Boolean) {
             return (Boolean) value;
@@ -49,8 +49,8 @@ public class JsonUtils {
         }
     }
 
-    @Nonnull
-    public static Number getNumber(@Nonnull JsonObject object, @Nonnull String path) throws ParsingException {
+    @NonNull
+    public static Number getNumber(@NonNull JsonObject object, @NonNull String path) throws ParsingException {
         Object value = getValue(object, path);
         if (value instanceof Number) {
             return (Number) value;
@@ -59,8 +59,8 @@ public class JsonUtils {
         }
     }
 
-    @Nonnull
-    public static JsonObject getObject(@Nonnull JsonObject object, @Nonnull String path) throws ParsingException {
+    @NonNull
+    public static JsonObject getObject(@NonNull JsonObject object, @NonNull String path) throws ParsingException {
         Object value = getValue(object, path);
         if (value instanceof JsonObject) {
             return (JsonObject) value;
@@ -69,8 +69,8 @@ public class JsonUtils {
         }
     }
 
-    @Nonnull
-    public static JsonArray getArray(@Nonnull JsonObject object, @Nonnull String path) throws ParsingException {
+    @NonNull
+    public static JsonArray getArray(@NonNull JsonObject object, @NonNull String path) throws ParsingException {
         Object value = getValue(object, path);
         if (value instanceof JsonArray) {
             return (JsonArray) value;
@@ -79,8 +79,8 @@ public class JsonUtils {
         }
     }
 
-    @Nonnull
-    public static List<Object> getValues(@Nonnull JsonArray array, @Nonnull String path) throws ParsingException {
+    @NonNull
+    public static List<Object> getValues(@NonNull JsonArray array, @NonNull String path) throws ParsingException {
 
         List<Object> result = new ArrayList<>();
         for (int i = 0; i < array.size(); i++) {
@@ -91,7 +91,7 @@ public class JsonUtils {
     }
 
     @Nullable
-    private static JsonObject getObject(@Nonnull JsonObject object, @Nonnull List<String> keys) {
+    private static JsonObject getObject(@NonNull JsonObject object, @NonNull List<String> keys) {
         JsonObject result = object;
         for (String key : keys) {
             result = result.getObject(key);

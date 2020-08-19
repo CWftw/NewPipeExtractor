@@ -17,7 +17,7 @@ import org.schabi.newpipe.extractor.stream.StreamInfoItemsCollector;
 
 import java.io.IOException;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 import static org.schabi.newpipe.extractor.utils.JsonUtils.EMPTY_STRING;
 import static org.schabi.newpipe.extractor.utils.Utils.isNullOrEmpty;
@@ -32,7 +32,7 @@ public class SoundcloudChannelExtractor extends ChannelExtractor {
     }
 
     @Override
-    public void onFetchPage(@Nonnull final Downloader downloader) throws IOException, ExtractionException {
+    public void onFetchPage(@NonNull final Downloader downloader) throws IOException, ExtractionException {
 
         userId = getLinkHandler().getId();
         final String apiUrl = "https://api-v2.soundcloud.com/users/" + userId +
@@ -46,13 +46,13 @@ public class SoundcloudChannelExtractor extends ChannelExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getId() {
         return userId;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() {
         return user.getString("username");
@@ -98,7 +98,7 @@ public class SoundcloudChannelExtractor extends ChannelExtractor {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public InfoItemsPage<StreamInfoItem> getInitialPage() throws ExtractionException {
         try {
