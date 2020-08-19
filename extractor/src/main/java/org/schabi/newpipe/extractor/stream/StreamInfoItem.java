@@ -23,7 +23,7 @@ package org.schabi.newpipe.extractor.stream;
 import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.localization.DateWrapper;
 
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * Info object for previews of unopened videos, eg search results, related videos

@@ -18,7 +18,7 @@ import org.schabi.newpipe.extractor.utils.Utils;
 
 import java.io.IOException;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 import static org.schabi.newpipe.extractor.services.peertube.PeertubeParsingHelper.COUNT_KEY;
 import static org.schabi.newpipe.extractor.services.peertube.PeertubeParsingHelper.ITEMS_PER_PAGE;
@@ -31,7 +31,7 @@ public class PeertubeSearchExtractor extends SearchExtractor {
         super(service, linkHandler);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSearchSuggestion() {
         return "";
@@ -79,5 +79,5 @@ public class PeertubeSearchExtractor extends SearchExtractor {
     }
 
     @Override
-    public void onFetchPage(@Nonnull final Downloader downloader) throws IOException, ExtractionException { }
+    public void onFetchPage(@NonNull final Downloader downloader) throws IOException, ExtractionException { }
 }

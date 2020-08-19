@@ -29,8 +29,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
 
 public class MediaCCCStreamExtractor extends StreamExtractor {
     private JsonObject data;
@@ -40,25 +39,25 @@ public class MediaCCCStreamExtractor extends StreamExtractor {
         super(service, linkHandler);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getTextualUploadDate() {
         return data.getString("release_date");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public DateWrapper getUploadDate() throws ParsingException {
         return new DateWrapper(MediaCCCParsingHelper.parseDateFrom(getTextualUploadDate()));
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getThumbnailUrl() {
         return data.getString("thumb_url");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Description getDescription() {
         return new Description(data.getString("description"), Description.PLAIN_TEXT);
@@ -94,50 +93,50 @@ public class MediaCCCStreamExtractor extends StreamExtractor {
         return -1;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUploaderUrl() {
         return MediaCCCConferenceLinkHandlerFactory.CONFERENCE_PATH + getUploaderName();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUploaderName() {
         return data.getString("conference_url")
                 .replaceFirst("https://(api\\.)?media\\.ccc\\.de/public/conferences/", "");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUploaderAvatarUrl() {
         return conferenceData.getString("logo_url");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelUrl() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelName() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelAvatarUrl() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getDashMpdUrl() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getHlsUrl() {
         return "";
@@ -201,13 +200,13 @@ public class MediaCCCStreamExtractor extends StreamExtractor {
         return Collections.emptyList();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<SubtitlesStream> getSubtitlesDefault() {
         return Collections.emptyList();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<SubtitlesStream> getSubtitles(final MediaFormat format) {
         return Collections.emptyList();
@@ -218,7 +217,7 @@ public class MediaCCCStreamExtractor extends StreamExtractor {
         return StreamType.VIDEO_STREAM;
     }
 
-    @Nullable
+    @NonNull
     @Override
     public StreamInfoItemsCollector getRelatedStreams() {
         return null;
@@ -230,7 +229,7 @@ public class MediaCCCStreamExtractor extends StreamExtractor {
     }
 
     @Override
-    public void onFetchPage(@Nonnull final Downloader downloader)
+    public void onFetchPage(@NonNull final Downloader downloader)
             throws IOException, ExtractionException {
         final String videoUrl = MediaCCCStreamLinkHandlerFactory.VIDEO_API_ENDPOINT + getId();
         try {
@@ -242,37 +241,37 @@ public class MediaCCCStreamExtractor extends StreamExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() throws ParsingException {
         return data.getString("title");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getOriginalUrl() {
         return data.getString("frontend_link");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getHost() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getPrivacy() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getCategory() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getLicence() {
         return "";
@@ -283,13 +282,13 @@ public class MediaCCCStreamExtractor extends StreamExtractor {
         return null;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<String> getTags() {
         return Arrays.asList(data.getArray("tags").toArray(new String[0]));
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSupportInfo() {
         return "";

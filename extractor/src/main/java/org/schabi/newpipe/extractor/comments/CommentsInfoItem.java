@@ -3,7 +3,7 @@ package org.schabi.newpipe.extractor.comments;
 import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.localization.DateWrapper;
 
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 public class CommentsInfoItem extends InfoItem {
 

@@ -22,7 +22,7 @@ import org.schabi.newpipe.extractor.services.media_ccc.linkHandler.MediaCCCConfe
 import java.io.IOException;
 import java.util.List;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 import static org.schabi.newpipe.extractor.services.media_ccc.linkHandler.MediaCCCSearchQueryHandlerFactory.ALL;
 import static org.schabi.newpipe.extractor.services.media_ccc.linkHandler.MediaCCCSearchQueryHandlerFactory.CONFERENCES;
@@ -44,7 +44,7 @@ public class MediaCCCSearchExtractor extends SearchExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSearchSuggestion() {
         return "";
@@ -55,7 +55,7 @@ public class MediaCCCSearchExtractor extends SearchExtractor {
         return false;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public InfoItemsPage<InfoItem> getInitialPage() {
         final InfoItemsSearchCollector searchItems = new InfoItemsSearchCollector(getServiceId());
@@ -86,7 +86,7 @@ public class MediaCCCSearchExtractor extends SearchExtractor {
     }
 
     @Override
-    public void onFetchPage(@Nonnull final Downloader downloader)
+    public void onFetchPage(@NonNull final Downloader downloader)
             throws IOException, ExtractionException {
         if (getLinkHandler().getContentFilters().contains(EVENTS)
                 || getLinkHandler().getContentFilters().contains(ALL)

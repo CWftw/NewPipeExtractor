@@ -1,7 +1,7 @@
 package org.schabi.newpipe.extractor.downloader;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +39,7 @@ public class Response {
         return responseHeaders;
     }
 
-    @Nonnull
+    @NonNull
     public String responseBody() {
         return responseBody;
     }
@@ -49,7 +49,7 @@ public class Response {
      *
      * @return latest url known right before this response object was created
      */
-    @Nonnull
+    @NonNull
     public String latestUrl() {
         return latestUrl;
     }

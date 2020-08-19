@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.schabi.newpipe.extractor.search.SearchExtractor;
 
 
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import static org.junit.Assert.assertEquals;
 import static org.schabi.newpipe.extractor.ExtractorAsserts.assertEmpty;

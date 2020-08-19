@@ -35,8 +35,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * Scrapes information from a video/audio streaming service (eg, YouTube).
@@ -82,7 +82,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return The url of the thumbnail.
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract String getThumbnailUrl() throws ParsingException;
 
     /**
@@ -91,7 +91,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return The description of the stream/video or Description.emptyDescription if the description is empty.
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract Description getDescription() throws ParsingException;
 
     /**
@@ -157,7 +157,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return the url to the page of the creator/uploader of the stream or an empty String
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract String getUploaderUrl() throws ParsingException;
 
     /**
@@ -167,7 +167,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return the name of the creator/uploader of the stream or an empty String
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract String getUploaderName() throws ParsingException;
 
     /**
@@ -177,7 +177,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return The url of the image file of the uploader or an empty String
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract String getUploaderAvatarUrl() throws ParsingException;
 
     /**
@@ -190,7 +190,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return the url to the page of the sub-channel of the stream or an empty String
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract String getSubChannelUrl() throws ParsingException;
 
     /**
@@ -200,7 +200,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return the name of the sub-channel of the stream or an empty String
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract String getSubChannelName() throws ParsingException;
 
     /**
@@ -210,7 +210,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return The url of the image file of the sub-channel or an empty String
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract String getSubChannelAvatarUrl() throws ParsingException;
 
     /**
@@ -220,7 +220,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return the url as a string or an empty string
      * @throws ParsingException if an error occurs while reading
      */
-    @Nonnull
+    @NonNull
     public abstract String getDashMpdUrl() throws ParsingException;
 
     /**
@@ -232,7 +232,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return The Url to the hls stream.
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract String getHlsUrl() throws ParsingException;
 
     /**
@@ -285,7 +285,7 @@ public abstract class StreamExtractor extends Extractor {
      * @throws IOException
      * @throws ExtractionException
      */
-    @Nonnull
+    @NonNull
     public abstract List<SubtitlesStream> getSubtitlesDefault() throws IOException, ExtractionException;
 
     /**
@@ -299,7 +299,7 @@ public abstract class StreamExtractor extends Extractor {
      * @throws IOException
      * @throws ExtractionException
      */
-    @Nonnull
+    @NonNull
     public abstract List<SubtitlesStream> getSubtitles(MediaFormat format) throws IOException, ExtractionException;
 
     /**
@@ -330,7 +330,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return list of preview frames or empty list if frames preview is not supported or not found for specified stream
      * @throws ExtractionException
      */
-    @Nonnull
+    @NonNull
     public List<Frameset> getFrames() throws ExtractionException {
         return Collections.emptyList();
     }
@@ -409,7 +409,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return the host of the stream or an empty String.
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract String getHost() throws ParsingException;
 
     /**
@@ -419,7 +419,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return the privacy of the stream or an empty String.
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract String getPrivacy() throws ParsingException;
 
     /**
@@ -429,7 +429,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return the category of the stream or an empty String.
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract String getCategory() throws ParsingException;
 
     /**
@@ -439,7 +439,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return the licence of the stream or an empty String.
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract String getLicence() throws ParsingException;
 
     /**
@@ -461,7 +461,7 @@ public abstract class StreamExtractor extends Extractor {
      * @return the list of tags of the stream or an empty list.
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract List<String> getTags() throws ParsingException;
 
     /**
@@ -474,6 +474,6 @@ public abstract class StreamExtractor extends Extractor {
      * @return the support information of the stream or an empty String.
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract String getSupportInfo() throws ParsingException;
 }

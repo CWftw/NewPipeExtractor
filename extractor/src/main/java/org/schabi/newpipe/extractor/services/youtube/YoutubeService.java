@@ -37,11 +37,11 @@ import org.schabi.newpipe.extractor.stream.StreamExtractor;
 import org.schabi.newpipe.extractor.subscription.SubscriptionExtractor;
 import org.schabi.newpipe.extractor.suggestion.SuggestionExtractor;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 import static java.util.Arrays.asList;
 import static org.schabi.newpipe.extractor.StreamingService.ServiceInfo.MediaCapability.AUDIO;
@@ -168,7 +168,7 @@ public class YoutubeService extends StreamingService {
         return new YoutubeSubscriptionExtractor(this);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public FeedExtractor getFeedExtractor(final String channelUrl) throws ExtractionException {
         return new YoutubeFeedExtractor(this, getChannelLHFactory().fromUrl(channelUrl));

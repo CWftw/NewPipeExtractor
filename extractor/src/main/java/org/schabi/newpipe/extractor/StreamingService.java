@@ -17,7 +17,7 @@ import org.schabi.newpipe.extractor.stream.StreamExtractor;
 import org.schabi.newpipe.extractor.subscription.SubscriptionExtractor;
 import org.schabi.newpipe.extractor.suggestion.SuggestionExtractor;
 
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 import java.util.Collections;
 import java.util.List;
 

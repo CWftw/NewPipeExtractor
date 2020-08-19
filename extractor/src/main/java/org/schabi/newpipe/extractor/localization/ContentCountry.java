@@ -1,6 +1,6 @@
 package org.schabi.newpipe.extractor.localization;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,7 +15,7 @@ import java.util.List;
 public class ContentCountry implements Serializable {
     public static final ContentCountry DEFAULT = new ContentCountry(Localization.DEFAULT.getCountryCode());
 
-    @Nonnull private final String countryCode;
+    @NonNull private final String countryCode;
 
     public static List<ContentCountry> listFrom(String... countryCodeList) {
         final List<ContentCountry> toReturn = new ArrayList<>();
@@ -25,11 +25,11 @@ public class ContentCountry implements Serializable {
         return Collections.unmodifiableList(toReturn);
     }
 
-    public ContentCountry(@Nonnull String countryCode) {
+    public ContentCountry(@NonNull String countryCode) {
         this.countryCode = countryCode;
     }
 
-    @Nonnull
+    @NonNull
     public String getCountryCode() {
         return countryCode;
     }

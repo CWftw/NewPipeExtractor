@@ -7,7 +7,7 @@ import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
 import org.schabi.newpipe.extractor.linkhandler.SearchQueryHandler;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 public abstract class SearchExtractor extends ListExtractor<InfoItem> {
 
@@ -34,7 +34,7 @@ public abstract class SearchExtractor extends ListExtractor<InfoItem> {
      * @return a suggestion to another query, the corrected query, or an empty String.
      * @throws ParsingException
      */
-    @Nonnull
+    @NonNull
     public abstract String getSearchSuggestion() throws ParsingException;
 
     @Override
@@ -42,7 +42,7 @@ public abstract class SearchExtractor extends ListExtractor<InfoItem> {
         return (SearchQueryHandler) super.getLinkHandler();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() {
         return getLinkHandler().getSearchString();

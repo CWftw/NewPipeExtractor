@@ -12,7 +12,7 @@ import org.schabi.newpipe.extractor.stream.StreamInfoItemsCollector;
 
 import java.io.IOException;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 import static org.schabi.newpipe.extractor.ServiceList.SoundCloud;
 import static org.schabi.newpipe.extractor.utils.Utils.isNullOrEmpty;
@@ -25,10 +25,10 @@ public class SoundcloudChartsExtractor extends KioskExtractor<StreamInfoItem> {
     }
 
     @Override
-    public void onFetchPage(@Nonnull Downloader downloader) {
+    public void onFetchPage(@NonNull Downloader downloader) {
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() {
         return getId();
@@ -46,7 +46,7 @@ public class SoundcloudChartsExtractor extends KioskExtractor<StreamInfoItem> {
         return new InfoItemsPage<>(collector, new Page(nextPageUrl));
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public InfoItemsPage<StreamInfoItem> getInitialPage() throws IOException, ExtractionException {
         final StreamInfoItemsCollector collector = new StreamInfoItemsCollector(getServiceId());

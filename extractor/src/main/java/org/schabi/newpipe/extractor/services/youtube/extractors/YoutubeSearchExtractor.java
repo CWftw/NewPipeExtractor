@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.getClientVersion;
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.getJsonResponse;
@@ -61,7 +61,7 @@ public class YoutubeSearchExtractor extends SearchExtractor {
     }
 
     @Override
-    public void onFetchPage(@Nonnull final Downloader downloader) throws IOException, ExtractionException {
+    public void onFetchPage(@NonNull final Downloader downloader) throws IOException, ExtractionException {
         final String url = getUrl() + "&pbj=1";
 
         final JsonArray ajaxJson = getJsonResponse(url, getExtractorLocalization());
@@ -69,13 +69,13 @@ public class YoutubeSearchExtractor extends SearchExtractor {
         initialData = ajaxJson.getObject(1).getObject("response");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUrl() throws ParsingException {
         return super.getUrl() + "&gl=" + getExtractorContentCountry().getCountryCode();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSearchSuggestion() throws ParsingException {
         final JsonObject itemSectionRenderer = initialData.getObject("contents")
@@ -106,7 +106,7 @@ public class YoutubeSearchExtractor extends SearchExtractor {
         return !showingResultsForRenderer.isEmpty();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public InfoItemsPage<InfoItem> getInitialPage() throws IOException, ExtractionException {
         final InfoItemsSearchCollector collector = new InfoItemsSearchCollector(getServiceId());

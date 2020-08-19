@@ -4,7 +4,7 @@ import org.schabi.newpipe.extractor.InfoItemExtractor;
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
 import org.schabi.newpipe.extractor.localization.DateWrapper;
 
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /*
  * Created by Christian Schabesberger on 28.02.16.

@@ -1,7 +1,8 @@
 package org.schabi.newpipe.extractor.timeago;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.lang.reflect.InvocationTargetException;
 
 public class PatternsManager {
@@ -11,7 +12,7 @@ public class PatternsManager {
      * @return an object containing the patterns. If not existent, {@code null}.
      */
     @Nullable
-    public static PatternsHolder getPatterns(@Nonnull String languageCode, @Nullable String countryCode) {
+    public static PatternsHolder getPatterns(@NonNull String languageCode, @Nullable String countryCode) {
         final String targetLocalizationClassName = languageCode +
                 (countryCode == null || countryCode.isEmpty() ? "" : "_" + countryCode);
 

@@ -37,8 +37,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
 
 public class PeertubeStreamExtractor extends StreamExtractor {
     private final String baseUrl;
@@ -66,13 +65,13 @@ public class PeertubeStreamExtractor extends StreamExtractor {
         return new DateWrapper(PeertubeParsingHelper.parseDateFrom(textualUploadDate));
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getThumbnailUrl() throws ParsingException {
         return baseUrl + JsonUtils.getString(json, "previewPath");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Description getDescription() throws ParsingException {
         String text;
@@ -140,7 +139,7 @@ public class PeertubeStreamExtractor extends StreamExtractor {
         return json.getLong("dislikes");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUploaderUrl() throws ParsingException {
         final String name = JsonUtils.getString(json, "account.name");
@@ -148,13 +147,13 @@ public class PeertubeStreamExtractor extends StreamExtractor {
         return getService().getChannelLHFactory().fromId("accounts/" + name + "@" + host, baseUrl).getUrl();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUploaderName() throws ParsingException {
         return JsonUtils.getString(json, "account.displayName");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUploaderAvatarUrl() {
         String value;
@@ -166,19 +165,19 @@ public class PeertubeStreamExtractor extends StreamExtractor {
         return baseUrl + value;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelUrl() throws ParsingException {
         return JsonUtils.getString(json, "channel.url");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelName() throws ParsingException {
         return JsonUtils.getString(json, "channel.displayName");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSubChannelAvatarUrl() {
         String value;
@@ -190,13 +189,13 @@ public class PeertubeStreamExtractor extends StreamExtractor {
         return baseUrl + value;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getDashMpdUrl() {
         return "";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getHlsUrl() {
         return "";
@@ -239,13 +238,13 @@ public class PeertubeStreamExtractor extends StreamExtractor {
         return Collections.emptyList();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<SubtitlesStream> getSubtitlesDefault() {
         return subtitles;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<SubtitlesStream> getSubtitles(final MediaFormat format) {
         final List<SubtitlesStream> filteredSubs = new ArrayList<>();
@@ -262,7 +261,7 @@ public class PeertubeStreamExtractor extends StreamExtractor {
         return StreamType.VIDEO_STREAM;
     }
 
-    @Nullable
+    @NonNull
     @Override
     public StreamInfoItemsCollector getRelatedStreams() throws IOException, ExtractionException {
         final List<String> tags = getTags();
@@ -282,7 +281,7 @@ public class PeertubeStreamExtractor extends StreamExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<String> getTags() {
         try {
@@ -292,7 +291,7 @@ public class PeertubeStreamExtractor extends StreamExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getSupportInfo() {
         try {
@@ -401,31 +400,31 @@ public class PeertubeStreamExtractor extends StreamExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() throws ParsingException {
         return JsonUtils.getString(json, "name");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getHost() throws ParsingException {
         return JsonUtils.getString(json, "account.host");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getPrivacy() throws ParsingException {
         return JsonUtils.getString(json, "privacy.label");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getCategory() throws ParsingException {
         return JsonUtils.getString(json, "category.label");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getLicence() throws ParsingException {
         return JsonUtils.getString(json, "licence.label");

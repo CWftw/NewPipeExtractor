@@ -7,7 +7,7 @@ import org.schabi.newpipe.extractor.services.media_ccc.extractors.MediaCCCParsin
 import org.schabi.newpipe.extractor.stream.StreamInfoItemExtractor;
 import org.schabi.newpipe.extractor.stream.StreamType;
 
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 public class MediaCCCStreamInfoItemExtractor implements StreamInfoItemExtractor {
     private JsonObject event;

@@ -18,7 +18,7 @@ import org.schabi.newpipe.extractor.stream.StreamInfoItemsCollector;
 
 import java.io.IOException;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 public class YoutubeFeedExtractor extends FeedExtractor {
     public YoutubeFeedExtractor(StreamingService service, ListLinkHandler linkHandler) {
@@ -28,7 +28,7 @@ public class YoutubeFeedExtractor extends FeedExtractor {
     private Document document;
 
     @Override
-    public void onFetchPage(@Nonnull Downloader downloader) throws IOException, ExtractionException {
+    public void onFetchPage(@NonNull Downloader downloader) throws IOException, ExtractionException {
         final String channelIdOrUser = getLinkHandler().getId();
         final String feedUrl = YoutubeParsingHelper.getFeedUrlFrom(channelIdOrUser);
 
@@ -36,7 +36,7 @@ public class YoutubeFeedExtractor extends FeedExtractor {
         document = Jsoup.parse(response.responseBody());
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ListExtractor.InfoItemsPage<StreamInfoItem> getInitialPage() {
         final Elements entries = document.select("feed > entry");
@@ -49,19 +49,19 @@ public class YoutubeFeedExtractor extends FeedExtractor {
         return new InfoItemsPage<>(collector, null);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getId() {
         return document.getElementsByTag("yt:channelId").first().text();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getUrl() {
         return document.select("feed > author > uri").first().text();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() {
         return document.select("feed > author > name").first().text();

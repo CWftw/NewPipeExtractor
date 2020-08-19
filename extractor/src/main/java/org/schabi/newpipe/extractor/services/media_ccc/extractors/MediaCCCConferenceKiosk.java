@@ -18,7 +18,7 @@ import org.schabi.newpipe.extractor.services.media_ccc.extractors.infoItems.Medi
 
 import java.io.IOException;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 public class MediaCCCConferenceKiosk extends KioskExtractor<ChannelInfoItem> {
     private JsonObject doc;
@@ -29,7 +29,7 @@ public class MediaCCCConferenceKiosk extends KioskExtractor<ChannelInfoItem> {
         super(streamingService, linkHandler, kioskId);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public InfoItemsPage<ChannelInfoItem> getInitialPage() {
         JsonArray conferences = doc.getArray("conferences");
@@ -48,7 +48,7 @@ public class MediaCCCConferenceKiosk extends KioskExtractor<ChannelInfoItem> {
     }
 
     @Override
-    public void onFetchPage(@Nonnull final Downloader downloader)
+    public void onFetchPage(@NonNull final Downloader downloader)
             throws IOException, ExtractionException {
         final String site = downloader.get(getLinkHandler().getUrl(), getExtractorLocalization())
                 .responseBody();
@@ -59,7 +59,7 @@ public class MediaCCCConferenceKiosk extends KioskExtractor<ChannelInfoItem> {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() throws ParsingException {
         return doc.getString("Conferences");

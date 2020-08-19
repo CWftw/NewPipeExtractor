@@ -36,7 +36,7 @@ import org.schabi.newpipe.extractor.stream.StreamInfoItemsCollector;
 
 import java.io.IOException;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.getJsonResponse;
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.getTextFromObject;
@@ -52,7 +52,7 @@ public class YoutubeTrendingExtractor extends KioskExtractor<StreamInfoItem> {
     }
 
     @Override
-    public void onFetchPage(@Nonnull Downloader downloader) throws IOException, ExtractionException {
+    public void onFetchPage(@NonNull Downloader downloader) throws IOException, ExtractionException {
         final String url = getUrl() + "?pbj=1&gl="
                 + getExtractorContentCountry().getCountryCode();
 
@@ -66,7 +66,7 @@ public class YoutubeTrendingExtractor extends KioskExtractor<StreamInfoItem> {
         return InfoItemsPage.emptyPage();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() throws ParsingException {
         String name = getTextFromObject(initialData.getObject("header").getObject("feedTabbedHeaderRenderer").getObject("title"));
@@ -76,7 +76,7 @@ public class YoutubeTrendingExtractor extends KioskExtractor<StreamInfoItem> {
         throw new ParsingException("Could not get Trending name");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public InfoItemsPage<StreamInfoItem> getInitialPage() {
         StreamInfoItemsCollector collector = new StreamInfoItemsCollector(getServiceId());

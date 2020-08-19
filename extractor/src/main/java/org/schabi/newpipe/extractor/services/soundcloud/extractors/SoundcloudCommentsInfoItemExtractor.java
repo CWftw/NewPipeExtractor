@@ -8,7 +8,7 @@ import org.schabi.newpipe.extractor.services.soundcloud.SoundcloudParsingHelper;
 
 import java.util.Objects;
 
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 public class SoundcloudCommentsInfoItemExtractor implements CommentsInfoItemExtractor {
     private JsonObject json;

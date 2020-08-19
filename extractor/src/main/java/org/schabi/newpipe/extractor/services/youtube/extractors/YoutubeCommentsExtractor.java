@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 import static java.util.Collections.singletonList;
 import static org.schabi.newpipe.extractor.utils.Utils.isNullOrEmpty;
@@ -125,7 +125,7 @@ public class YoutubeCommentsExtractor extends CommentsExtractor {
     }
 
     @Override
-    public void onFetchPage(@Nonnull Downloader downloader) throws IOException, ExtractionException {
+    public void onFetchPage(@NonNull Downloader downloader) throws IOException, ExtractionException {
         final Map<String, List<String>> requestHeaders = new HashMap<>();
         requestHeaders.put("User-Agent", singletonList(USER_AGENT));
         final Response response = downloader.get(getUrl(), requestHeaders, getExtractorLocalization());

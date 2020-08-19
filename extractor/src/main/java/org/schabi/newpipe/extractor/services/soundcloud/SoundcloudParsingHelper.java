@@ -23,7 +23,7 @@ import org.schabi.newpipe.extractor.utils.Parser;
 import org.schabi.newpipe.extractor.utils.Parser.RegexException;
 import org.schabi.newpipe.extractor.utils.Utils;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.text.ParseException;
@@ -264,13 +264,13 @@ public class SoundcloudParsingHelper {
         return getStreamsFromApi(collector, apiUrl, false);
     }
 
-    @Nonnull
+    @NonNull
     public static String getUploaderUrl(JsonObject object) {
         String url = object.getObject("user").getString("permalink_url", EMPTY_STRING);
         return replaceHttpWithHttps(url);
     }
 
-    @Nonnull
+    @NonNull
     public static String getAvatarUrl(JsonObject object) {
         String url = object.getObject("user").getString("avatar_url", EMPTY_STRING);
         return replaceHttpWithHttps(url);

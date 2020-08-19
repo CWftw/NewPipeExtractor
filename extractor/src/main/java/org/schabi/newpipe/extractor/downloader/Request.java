@@ -2,8 +2,8 @@ package org.schabi.newpipe.extractor.downloader;
 
 import org.schabi.newpipe.extractor.localization.Localization;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.util.*;
 
 /**
@@ -227,7 +227,7 @@ public class Request {
     //////////////////////////////////////////////////////////////////////////*/
 
     @SuppressWarnings("WeakerAccess")
-    @Nonnull
+    @NonNull
     public static Map<String, List<String>> headersFromLocalization(@Nullable Localization localization) {
         if (localization == null) return Collections.emptyMap();
 

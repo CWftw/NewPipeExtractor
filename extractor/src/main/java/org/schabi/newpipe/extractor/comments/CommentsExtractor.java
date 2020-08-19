@@ -5,7 +5,7 @@ import org.schabi.newpipe.extractor.StreamingService;
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
 import org.schabi.newpipe.extractor.linkhandler.ListLinkHandler;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 public abstract class CommentsExtractor extends ListExtractor<CommentsInfoItem> {
 
@@ -14,7 +14,7 @@ public abstract class CommentsExtractor extends ListExtractor<CommentsInfoItem> 
         // TODO Auto-generated constructor stub
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() throws ParsingException {
         return "Comments";
