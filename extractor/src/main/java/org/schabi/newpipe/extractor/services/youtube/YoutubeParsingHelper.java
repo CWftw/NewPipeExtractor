@@ -65,7 +65,6 @@ public class YoutubeParsingHelper {
     private static String clientVersion;
 
     private static String key;
-    private static String idToken;
 
     private static final String[] HARDCODED_YOUTUBE_MUSIC_KEYS = {"AIzaSyC9XL3ZjWddXya6X74dJoCTL-WEYFDNX30", "67", "0.1"};
     private static String[] youtubeMusicKeys;
@@ -283,12 +282,6 @@ public class YoutubeParsingHelper {
                 key = Parser.matchGroup1("innertubeApiKey\":\"([0-9a-zA-Z_-]+?)\"", html);
             } catch (Parser.RegexException ignored) { }
         }
-
-        try {
-            idToken = Parser.matchGroup1("ID_TOKEN\":\"([0-9a-zA-Z_=-]+?)\"", html);
-        } catch (Parser.RegexException e) {
-            idToken = null;
-        }
     }
 
     /**
@@ -312,15 +305,6 @@ public class YoutubeParsingHelper {
         extractClientVersionAndKey();
         if (isNullOrEmpty(key)) throw new ParsingException("Could not extract key");
         return key;
-    }
-
-    public static String getIdToken() throws IOException, ExtractionException {
-        if (!isNullOrEmpty(idToken)) return idToken;
-        extractClientVersionAndKey();
-        if (isNullOrEmpty(idToken)) {
-            return null;
-        }
-        return idToken;
     }
 
     public static boolean areHardcodedYoutubeMusicKeysValid() throws IOException, ReCaptchaException {
@@ -539,17 +523,9 @@ public class YoutubeParsingHelper {
         Map<String, List<String>> headers = new HashMap<>();
         headers.put("X-YouTube-Client-Name", Collections.singletonList("1"));
         headers.put("X-YouTube-Client-Version", Collections.singletonList(getClientVersion()));
-
-        String idToken = getIdToken();
-        if (idToken != null) {
-            headers.put("x-youtube-identity-token", Collections.singletonList(idToken));
-        }
-
         final Response response = getDownloader().get(url, headers, localization);
 
         final String responseBody = getValidJsonResponseBody(response);
-
-        idToken = null; // We need to re-check if we have/need an idToken so we correctly add/do not add the header after a login/logout
 
         try {
             return JsonParser.array().from(responseBody);
