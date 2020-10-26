@@ -1,5 +1,7 @@
 package org.schabi.newpipe.extractor.services.peertube;
 
+import androidx.annotation.Nullable;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.schabi.newpipe.DownloaderTestImpl;
@@ -15,8 +17,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
-
-import javax.annotation.Nullable;
 
 import static org.junit.Assert.assertEquals;
 import static org.schabi.newpipe.extractor.ServiceList.PeerTube;

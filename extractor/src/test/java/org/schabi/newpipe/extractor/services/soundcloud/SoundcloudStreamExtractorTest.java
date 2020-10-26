@@ -1,5 +1,7 @@
 package org.schabi.newpipe.extractor.services.soundcloud;
 
+import androidx.annotation.Nullable;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.schabi.newpipe.DownloaderTestImpl;
@@ -12,8 +14,6 @@ import org.schabi.newpipe.extractor.stream.StreamType;
 
 import java.util.Arrays;
 import java.util.List;
-
-import javax.annotation.Nullable;
 
 import static org.schabi.newpipe.extractor.ServiceList.SoundCloud;
 
