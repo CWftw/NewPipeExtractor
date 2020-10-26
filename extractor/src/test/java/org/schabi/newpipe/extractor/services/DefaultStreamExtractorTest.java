@@ -1,5 +1,7 @@
 package org.schabi.newpipe.extractor.services;
 
+import androidx.annotation.Nullable;
+
 import org.junit.Test;
 import org.schabi.newpipe.extractor.MediaFormat;
 import org.schabi.newpipe.extractor.localization.DateWrapper;
@@ -18,8 +20,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
-
-import javax.annotation.Nullable;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;

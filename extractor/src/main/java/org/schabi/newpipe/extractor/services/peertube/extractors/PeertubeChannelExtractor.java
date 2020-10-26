@@ -1,5 +1,7 @@
 package org.schabi.newpipe.extractor.services.peertube.extractors;
 
+import androidx.annotation.NonNull;
+
 import com.grack.nanojson.JsonObject;
 import com.grack.nanojson.JsonParser;
 import com.grack.nanojson.JsonParserException;
@@ -20,8 +22,6 @@ import org.schabi.newpipe.extractor.utils.JsonUtils;
 import org.schabi.newpipe.extractor.utils.Utils;
 
 import java.io.IOException;
-
-import javax.annotation.Nonnull;
 
 import static org.schabi.newpipe.extractor.services.peertube.PeertubeParsingHelper.COUNT_KEY;
 import static org.schabi.newpipe.extractor.services.peertube.PeertubeParsingHelper.ITEMS_PER_PAGE;
@@ -95,7 +95,7 @@ public class PeertubeChannelExtractor extends ChannelExtractor {
         return baseUrl + value;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public InfoItemsPage<StreamInfoItem> getInitialPage() throws IOException, ExtractionException {
         return getPage(new Page(
@@ -152,7 +152,7 @@ public class PeertubeChannelExtractor extends ChannelExtractor {
         if (json == null) throw new ExtractionException("Unable to extract PeerTube channel data");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getName() throws ParsingException {
         return JsonUtils.getString(json, "displayName");

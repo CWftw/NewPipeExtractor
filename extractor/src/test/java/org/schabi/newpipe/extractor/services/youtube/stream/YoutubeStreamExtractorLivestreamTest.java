@@ -1,5 +1,7 @@
 package org.schabi.newpipe.extractor.services.youtube.stream;
 
+import androidx.annotation.Nullable;
+
 import org.junit.BeforeClass;
 import org.schabi.newpipe.DownloaderTestImpl;
 import org.schabi.newpipe.extractor.NewPipe;
@@ -10,8 +12,6 @@ import org.schabi.newpipe.extractor.stream.StreamType;
 
 import java.util.Arrays;
 import java.util.List;
-
-import javax.annotation.Nullable;
 
 import static org.schabi.newpipe.extractor.ServiceList.YouTube;
 
