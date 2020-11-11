@@ -1,5 +1,7 @@
 package org.schabi.newpipe.extractor.services.youtube.extractors;
 
+import androidx.annotation.NonNull;
+
 import com.grack.nanojson.JsonArray;
 import com.grack.nanojson.JsonObject;
 import com.grack.nanojson.JsonParser;
@@ -14,8 +16,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import javax.annotation.Nonnull;
 
 import static org.schabi.newpipe.extractor.subscription.SubscriptionExtractor.ContentSource.INPUT_STREAM;
 
@@ -35,7 +35,7 @@ public class YoutubeSubscriptionExtractor extends SubscriptionExtractor {
     }
 
     @Override
-    public List<SubscriptionItem> fromInputStream(@Nonnull final InputStream contentInputStream)
+    public List<SubscriptionItem> fromInputStream(@NonNull final InputStream contentInputStream)
             throws ExtractionException {
         final JsonArray subscriptions;
         try {

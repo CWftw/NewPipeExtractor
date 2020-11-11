@@ -26,8 +26,6 @@ import static org.schabi.newpipe.extractor.services.peertube.PeertubeParsingHelp
 import static org.schabi.newpipe.extractor.services.peertube.PeertubeParsingHelper.ITEMS_PER_PAGE;
 import static org.schabi.newpipe.extractor.services.peertube.PeertubeParsingHelper.START_KEY;
 import static org.schabi.newpipe.extractor.services.peertube.PeertubeParsingHelper.collectStreamsFrom;
-import javax.annotation.Nonnull;
-import java.io.IOException;
 
 import static org.schabi.newpipe.extractor.services.peertube.PeertubeParsingHelper.*;
 import static org.schabi.newpipe.extractor.utils.Utils.isNullOrEmpty;

@@ -702,7 +702,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     };
 
     @Override
-    public void onFetchPage(@Nonnull final Downloader downloader)
+    public void onFetchPage(@NonNull final Downloader downloader)
             throws IOException, ExtractionException {
         initialAjaxJson = getJsonResponse(getUrl() + "&pbj=1", getExtractorLocalization());
 
@@ -803,7 +803,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         throw new DeobfuscateException("Could not find deobfuscate function with any of the given patterns.", exception);
     }
 
-    private String loadDeobfuscationCode(@Nonnull final String playerJsUrl)
+    private String loadDeobfuscationCode(@NonNull final String playerJsUrl)
             throws DeobfuscateException {
         try {
             final String playerCode = NewPipe.getDownloader()
@@ -833,7 +833,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         }
     }
 
-    @Nonnull
+    @NonNull
     private String getDeobfuscationCode() throws ParsingException {
         if (cachedDeobfuscationCode == null) {
             if (playerJsUrl == null) {

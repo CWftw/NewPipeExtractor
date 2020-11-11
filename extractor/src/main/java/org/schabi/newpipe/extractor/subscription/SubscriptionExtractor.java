@@ -4,6 +4,7 @@ import org.schabi.newpipe.extractor.StreamingService;
 import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -71,7 +72,7 @@ public abstract class SubscriptionExtractor {
      *
      * @throws InvalidSourceException when the content read from the InputStream is invalid and can not be parsed
      */
-    public List<SubscriptionItem> fromInputStream(@Nonnull final InputStream contentInputStream)
+    public List<SubscriptionItem> fromInputStream(@NonNull final InputStream contentInputStream)
             throws ExtractionException {
         throw new UnsupportedOperationException("Service " + service.getServiceInfo().getName()
                 + " doesn't support extracting from an InputStream");
